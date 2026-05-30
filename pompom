@@ -12,19 +12,19 @@
     <div id="desktop">
         
         <div class="desktop-icon" onclick="openWindow('win-timer')">
-            <div class="icon-img icon-timer">⏱️</div>
+            <div class="icon-img">⏱️</div>
             <div class="icon-label">Pomo Timer</div>
         </div>
         <div class="desktop-icon" onclick="openWindow('win-notepad')">
-            <div class="icon-img icon-notepad">📝</div>
+            <div class="icon-img">📝</div>
             <div class="icon-label">Notes</div>
         </div>
         <div class="desktop-icon" onclick="openWindow('win-calc')">
-            <div class="icon-img icon-calc">🧮</div>
+            <div class="icon-img">🧮</div>
             <div class="icon-label">Calculator</div>
         </div>
         <div class="desktop-icon" onclick="openWindow('win-todos')">
-            <div class="icon-img icon-todo">✅</div>
+            <div class="icon-img">✅</div>
             <div class="icon-label">To-Do List</div>
         </div>
 
@@ -34,7 +34,18 @@
                 <button class="window-close" onclick="closeWindow('win-timer')">×</button>
             </div>
             <div class="window-body">
+                <div class="timer-display" id="timer-digits">25:00</div>
+                <div class="timer-controls">
+                    <button id="timer-start" onclick="startTimer()">Start</button>
+                    <button id="timer-pause" onclick="pauseTimer()">Pause</button>
+                    <button id="timer-reset" onclick="resetTimer()">Reset</button>
                 </div>
+                <div class="timer-modes">
+                    <button onclick="setTimerMode('pomodoro')">Pomodoro</button>
+                    <button onclick="setTimerMode('short')">Short Break</button>
+                    <button onclick="setTimerMode('long')">Long Break</button>
+                </div>
+            </div>
         </div>
 
         <div id="win-notepad" class="window" style="top: 15%; left: 50%; width: 400px; display: none;">
@@ -53,7 +64,26 @@
                 <button class="window-close" onclick="closeWindow('win-calc')">×</button>
             </div>
             <div class="window-body">
+                <input type="text" id="calc-screen" readonly value="0">
+                <div class="calc-buttons">
+                    <button onclick="clearCalc()">C</button>
+                    <button onclick="inputCalc('/')">/</button>
+                    <button onclick="inputCalc('*')">*</button>
+                    <button onclick="inputCalc('-')">-</button>
+                    <button onclick="inputCalc('7')">7</button>
+                    <button onclick="inputCalc('8')">8</button>
+                    <button onclick="inputCalc('9')">9</button>
+                    <button onclick="inputCalc('+')">+</button>
+                    <button onclick="inputCalc('4')">4</button>
+                    <button onclick="inputCalc('5')">5</button>
+                    <button onclick="inputCalc('6')">6</button>
+                    <button onclick="calculateResult()">=</button>
+                    <button onclick="inputCalc('1')">1</button>
+                    <button onclick="inputCalc('2')">2</button>
+                    <button onclick="inputCalc('3')">3</button>
+                    <button onclick="inputCalc('0')">0</button>
                 </div>
+            </div>
         </div>
 
         <div id="win-todos" class="window" style="top: 40%; left: 55%; width: 300px; display: none;">
@@ -62,7 +92,13 @@
                 <button class="window-close" onclick="closeWindow('win-todos')">×</button>
             </div>
             <div class="window-body">
+                <div class="todo-input-container">
+                    <input type="text" id="todo-input" placeholder="Add a new task...">
+                    <button onclick="addTodoItem()">Add</button>
                 </div>
+                <div id="todo-list-container">
+                    </div>
+            </div>
         </div>
 
     </div>
@@ -79,8 +115,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
-
-
-
-
