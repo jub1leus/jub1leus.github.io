@@ -1,0 +1,799 @@
+/* =========================================
+           GLOBAL & BASE STYLES
+           ========================================= */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: var(--bg-fallback);
+            background-image: var(--wallpaper);
+            background-size: cover;
+            background-position: center;
+            font-family: var(--font-family);
+            cursor: default;
+            user-select: none;
+        }
+
+        /* Base Variables (Defaults to Windows 95 style) */
+        :root {
+            --font-family: 'MS Sans Serif', 'Pixelated MS Sans Serif', Arial, sans-serif;
+            --bg-fallback: #008080;
+            --window-bg: #c0c0c0;
+            --window-border-out: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+            --window-border-radius: 0px;
+            --title-bg: #000080;
+            --title-color: #fff;
+            --title-font: bold 14px var(--font-family);
+            --title-height: 26px;
+            --taskbar-bg: #c0c0c0;
+            --taskbar-border: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+            --taskbar-height: 42px;
+            --taskbar-text-color: #000;
+            --btn-bg: #c0c0c0;
+            --btn-border: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+            --btn-active-border: inset -1px -1px #fff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px grey;
+            --start-btn-bg: var(--btn-bg);
+            --start-btn-border: var(--btn-border);
+            --start-btn-radius: 0;
+            --start-btn-text-color: #000;
+            --tray-bg: var(--window-bg);
+            --tray-border: inset -1px -1px #fff, inset 1px 1px #0a0a0a;
+            --glass-blur: none;
+            --glass-bg: transparent;
+            --btn-close-bg: #c0c0c0;
+            --btn-close-color: #000;
+            --btn-min-bg: #c0c0c0;
+            --btn-min-color: #000;
+            --timer-bg: #ffffff;
+            --timer-border: inset 3px #808080;
+            --timer-text-color: #000000;
+            --timer-font: bold 46px 'MS Sans Serif', monospace;
+            --timer-padding: 8px;
+            --timer-border-radius: 0px;
+            --wallpaper: linear-gradient(to bottom, #008080, #008080);
+            
+            /* Default Windows 95 Icons */
+            --icon-pomo: url('https://win98icons.alexmeub.com/icons/png/clock-1.png');
+            --icon-notes: url('https://win98icons.alexmeub.com/icons/png/notepad_file-0.png');
+            --icon-calc: url('https://win98icons.alexmeub.com/icons/png/calculator-0.png');
+            --icon-clock: url('https://win98icons.alexmeub.com/icons/png/world-0.png');
+            --icon-music: url('https://win98icons.alexmeub.com/icons/png/cd_audio_cd_a-0.png');
+            --icon-todo: url('https://win98icons.alexmeub.com/icons/png/calendar-0.png');
+            --icon-filter: none;
+        }
+
+        /* =========================================
+           LOGIN SCREEN
+           ========================================= */
+        #login-screen {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: #008080; 
+            z-index: 9999;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            flex-direction: column;
+            font-family: 'MS Sans Serif', Tahoma, sans-serif; 
+            color: #fff;
+        }
+
+        .login-box {
+            background: #c0c0c0; 
+            padding: 20px; 
+            border: 2px outset #fff;
+            color: #000; 
+            width: 300px; 
+            text-align: center;
+        }
+
+        .login-box input {
+            width: 90%; 
+            margin: 10px 0; 
+            padding: 5px; 
+            border: 2px inset #fff;
+        }
+
+        .login-box button {
+            padding: 5px 20px; 
+            background: #c0c0c0; 
+            border: 2px outset #fff; 
+            cursor: pointer;
+        }
+
+        /* =========================================
+           THEMES
+           ========================================= */
+
+        /* WINDOWS 95 */
+        body.theme-win95 {
+            --font-family: 'MS Sans Serif', 'Pixelated MS Sans Serif', Arial, sans-serif;
+            --wallpaper: url('https://external-preview.redd.it/windows-95-default-1920x1080-v0-Vq3hz8gihAmGthWOa0-JFmomoxDryLP2yYVtHew3oMQ.png?width=1080&crop=smart&auto=webp&s=774c9d670b70ec5a4f785f2100347b8f22bbae71');
+        }
+
+        /* WINDOWS 98 (Pastel Pink) */
+        body.theme-win98 {
+            --font-family: Verdana, 'Trebuchet MS', sans-serif;
+            --bg-fallback: #2b2640;
+            --wallpaper: 
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(135deg, #2b2640 0%, #4a3b61 35%, #82618b 70%, #b892a0 100%);
+            background-size: 32px 32px, 32px 32px, 100% 100%;
+            background-color: #2b2640;
+            --window-bg: #e2dbec;
+            --window-border-out: inset -1px -1px #1a1625, inset 1px 1px #fff, inset -2px -2px #82618b, inset 2px 2px #f5effa;
+            --title-bg: linear-gradient(90deg, #6c7bb0, #b58da3);
+            --title-color: #fff;
+            --taskbar-bg: #6d6077;
+            --taskbar-border: inset -1px -1px #1a1625, inset 1px 1px #fff, inset -2px -2px #756a80, inset 2px 2px #eae4f0;
+            --taskbar-text-color: #e5dcff;
+            --btn-bg: #e2dbec;
+            --btn-border: inset -1px -1px #1a1625, inset 1px 1px #fff, inset -2px -2px #82618b, inset 2px 2px #f5effa;
+            --btn-active-border: inset -1px -1px #fff, inset 1px 1px #1a1625, inset -2px -2px #f5effa, inset 2px 2px #82618b;
+            --tray-bg: #352f44;
+            --tray-border: inset -1px -1px #82618b, inset 1px 1px #2b2640;
+            --timer-bg: #211c30;
+            --timer-border: 2px solid #b58da3;
+            --timer-text-color: #e8dff5;
+            --timer-font: 46px 'Verdana', monospace;
+            --icon-todo: url('https://win98icons.alexmeub.com/icons/png/calendar-0.png');
+            --icon-filter: sepia(1) hue-rotate(290deg) saturate(2) brightness(1.1);
+        }
+
+        body.theme-win98 .task-item {
+            background: #e2dbec; 
+            color: #1a1625; 
+            text-shadow: none;
+            border: inset -1px -1px #1a1625, inset 1px 1px #fff, inset -2px -2px #82618b, inset 2px 2px #e2dbec;
+        }
+
+        body.theme-win98 .task-item.active { 
+            background: #bdaecb !important; 
+            box-shadow: inset 1px 1px 4px rgba(0,0,0,0.2); 
+        }
+
+        body.theme-win98 .pomo-display { 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15), inset 0 0 8px rgba(0,0,0,0.3); 
+            text-shadow: 1px 1px 4px rgba(181, 141, 163, 0.5); 
+        }
+
+        body.theme-win98 .icon { 
+            color: #fff; 
+            text-shadow: 1px 1px 3px #1a1625; 
+        }
+
+        /* WINDOWS XP */
+        body.theme-winxp {
+            --font-family: Tahoma, sans-serif;
+            --wallpaper: url('https://external-preview.redd.it/uhq5zTcMPM3tOW_fbUz4PayDt_5pkEXdyXXoRWs3XOg.jpg?auto=webp&s=e06461124c1ccfdba7e9ece763b644ff68eeb06b');
+            --bg-fallback: #004e98;
+            --window-bg: #ece9d8;
+            --window-border-out: 1px solid #00138c;
+            --window-border-radius: 8px 8px 0 0;
+            --title-bg: linear-gradient(to bottom, #0058e6 0%, #3a93ff 5%, #288eff 15%, #127dff 40%, #036bfe 70%, #0058e6 100%);
+            --title-height: 30px;
+            --taskbar-bg: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #1e3a7a 100%);
+            --taskbar-border: none;
+            --taskbar-height: 46px;
+            --taskbar-text-color: #ffffff;
+            --btn-bg: linear-gradient(to bottom, #f3f3f3, #e1e1e1);
+            --btn-border: 1px solid #7a7a7a;
+            --start-btn-bg: radial-gradient(circle at 50% 20%, #4baf4f, #2e8b2e);
+            --start-btn-border: 1px solid #1a5e1a;
+            --start-btn-radius: 0 12px 12px 0;
+            --start-btn-text-color: #ffffff;
+            --tray-bg: rgba(0,0,0,0.3);
+            --tray-border: none;
+            --btn-close-bg: #d02f2f; 
+            --btn-close-color: #fff;
+            --timer-bg: linear-gradient(145deg, #154c8c, #0e3a6b);
+            --timer-border: 1px solid #3a7bc2;
+            --timer-text-color: #e6f2ff;
+            /* Era accurate abstract SVG icons */
+            --icon-pomo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%23e84e1b' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='24' cy='24' r='16' fill='none' stroke='%23fff' stroke-width='3' opacity='0.9'/%3E%3Cpath d='M24 12v12l6 6' fill='none' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+            --icon-notes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='10' y='8' width='28' height='32' rx='6' fill='%23f9e45c' stroke='%23fff' stroke-width='2'/%3E%3Cline x1='16' y1='18' x2='32' y2='18' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='16' y1='26' x2='28' y2='26' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E");
+            --icon-calc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='10' y='10' width='28' height='28' rx='8' fill='%233a93ff' stroke='%23fff' stroke-width='2'/%3E%3Ctext x='24' y='28' font-size='18' text-anchor='middle' fill='%23fff' font-weight='bold'%3E+/-%3C/text%3E%3C/svg%3E");
+            --icon-clock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%230058e6' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='24' cy='24' r='14' fill='%23fff'/%3E%3Cpath d='M24 14v10l6 4' fill='none' stroke='%230058e6' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E");
+            --icon-music: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%23b87cf9' stroke='%23fff' stroke-width='2'/%3E%3Ccircle cx='24' cy='24' r='14' fill='%23fff'/%3E%3Cpolygon points='20,18 20,30 32,24' fill='%237e3db5'/%3E%3C/svg%3E");
+            --icon-todo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect x='12' y='10' width='24' height='32' fill='%23fff' stroke='%23d68a22' stroke-width='2'/%3E%3Cpath d='M16 6h16v8H16z' fill='%23a86c14'/%3E%3Cpath d='M18 24l4 4 10-10' fill='none' stroke='%234baf4f' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cline x1='18' y1='32' x2='30' y2='32' stroke='%237a7a7a' stroke-width='2'/%3E%3C/svg%3E");
+        }
+
+        body.theme-winxp #start-btn { 
+            font-style: italic; 
+            font-size: 16px; 
+            padding-right: 18px; 
+            text-shadow: 1px 1px 2px #000; 
+        }
+
+        body.theme-winxp .task-item { 
+            background: linear-gradient(to bottom, #3b7ced, #2659d4); 
+            border: 1px solid #14358a; 
+            border-radius: 4px; 
+            color: white; 
+        }
+
+        /* WINDOWS VISTA */
+        body.theme-winvista {
+            --font-family: 'Segoe UI', Tahoma, sans-serif;
+            --wallpaper: none;
+            --bg-fallback: #000;
+            --window-bg: rgba(240, 240, 240, 0.85);
+            --glass-blur: blur(12px);
+            --glass-bg: rgba(255, 255, 255, 0.4);
+            --window-border-out: 1px solid rgba(255, 255, 255, 0.6);
+            --window-border-radius: 6px;
+            --title-bg: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+            --title-height: 32px;
+            --taskbar-bg: rgba(0, 0, 0, 0.5);
+            --taskbar-border: none;
+            --taskbar-height: 52px;
+            --taskbar-text-color: #ffffff;
+            --btn-bg: linear-gradient(to bottom, #fff, #ccc);
+            --btn-border: 1px solid #777;
+            --tray-bg: rgba(0,0,0,0.4);
+            --tray-border: none;
+            --btn-close-bg: #e74c3c; 
+            --btn-close-color: #fff;
+            --timer-bg: rgba(0,0,0,0.3);
+            --timer-border: 1px solid rgba(255,255,255,0.5);
+            --timer-text-color: #ffffff;
+            /* Vista/Frutiger Aero Glossy Custom SVGs */
+            --icon-pomo: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='vp' cx='30%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ff7b7b'/%3E%3Cstop offset='50%25' stop-color='%23e81123'/%3E%3Cstop offset='100%25' stop-color='%238a0000'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='36' r='24' fill='url(%23vp)'/%3E%3Cpath d='M32 12 Q40 0 48 12 Q40 20 32 12' fill='%232ecc71'/%3E%3Cellipse cx='24' cy='24' rx='8' ry='4' fill='%23fff' opacity='0.6' transform='rotate(-30 24 24)'/%3E%3C/svg%3E");
+            --icon-notes: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='vn' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23fffdf0'/%3E%3Cstop offset='100%25' stop-color='%23e0d796'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='12' y='8' width='40' height='48' rx='2' fill='url(%23vn)' stroke='%23bba953' stroke-width='2'/%3E%3Cline x1='20' y1='20' x2='44' y2='20' stroke='%23a0ceeb' stroke-width='2'/%3E%3Cline x1='20' y1='30' x2='44' y2='30' stroke='%23a0ceeb' stroke-width='2'/%3E%3Cpath d='M12 12h40' stroke='%23333' stroke-width='4' stroke-dasharray='4 8'/%3E%3C/svg%3E");
+            --icon-calc: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='vc' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23777'/%3E%3Cstop offset='100%25' stop-color='%23222'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='12' y='8' width='40' height='48' rx='4' fill='url(%23vc)' stroke='%23999' stroke-width='2'/%3E%3Crect x='18' y='14' width='28' height='10' fill='%23a4d1a2'/%3E%3Ccircle cx='22' cy='34' r='4' fill='%233498db'/%3E%3Ccircle cx='32' cy='34' r='4' fill='%233498db'/%3E%3Ccircle cx='42' cy='34' r='4' fill='%23e74c3c'/%3E%3C/svg%3E");
+            --icon-clock: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='vck' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='70%25' stop-color='%23fff'/%3E%3Cstop offset='100%25' stop-color='%23ccc'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23vck)' stroke='%23888' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='24' fill='none' stroke='%23e0e0e0' stroke-width='2'/%3E%3Cline x1='32' y1='32' x2='32' y2='14' stroke='%23333' stroke-width='3' stroke-linecap='round'/%3E%3Cline x1='32' y1='32' x2='42' y2='32' stroke='%23e74c3c' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+            --icon-music: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='vmp' cx='50%25' cy='20%25' r='80%25'%3E%3Cstop offset='0%25' stop-color='%2300e5ff'/%3E%3Cstop offset='50%25' stop-color='%230077cc'/%3E%3Cstop offset='100%25' stop-color='%23002255'/%3E%3C/radialGradient%3E%3ClinearGradient id='vmp-gl' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.9)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/linearGradient%3E%3CradialGradient id='vmp-play' cx='30%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%23ffaa00'/%3E%3Cstop offset='100%25' stop-color='%23cc4400'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23vmp)' stroke='%23001133' stroke-width='1.5'/%3E%3Cpath d='M6,32 a26,26 0 0,1 52,0 a26,16 0 0,0 -52,0 Z' fill='url(%23vmp-gl)'/%3E%3Ccircle cx='32' cy='32' r='14' fill='url(%23vmp-play)' stroke='%23fff' stroke-width='1.5'/%3E%3Cpolygon points='29,25 29,39 40,32' fill='%23fff'/%3E%3C/svg%3E");            
+            --icon-todo: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='cb' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2361a5ff'/%3E%3Cstop offset='100%25' stop-color='%23003d82'/%3E%3C/linearGradient%3E%3ClinearGradient id='clp' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='40%25' stop-color='%23dcdcdc'/%3E%3Cstop offset='50%25' stop-color='%23a0a0a0'/%3E%3Cstop offset='100%25' stop-color='%23e8e8e8'/%3E%3C/linearGradient%3E%3ClinearGradient id='chk' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%234cd964'/%3E%3Cstop offset='100%25' stop-color='%231a8c2f'/%3E%3C/linearGradient%3E%3ClinearGradient id='gls' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.9)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='10' y='10' width='44' height='50' rx='6' fill='url(%23cb)' stroke='%23001a33' stroke-width='1.5'/%3E%3Crect x='12' y='12' width='40' height='46' rx='4' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.5'/%3E%3Crect x='14' y='16' width='36' height='40' fill='%23ffffff' stroke='%23888' stroke-width='1'/%3E%3Crect x='15' y='17' width='34' height='38' fill='none' stroke='%23eee' stroke-width='1'/%3E%3Cpath d='M14 16 L50 16 L50 32 Q32 40 14 32 Z' fill='url(%23gls)'/%3E%3Cline x1='34' y1='28' x2='44' y2='28' stroke='%23a0ceeb' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='34' y1='40' x2='44' y2='40' stroke='%23a0ceeb' stroke-width='2' stroke-linecap='round'/%3E%3Crect x='22' y='6' width='20' height='14' rx='4' fill='url(%23clp)' stroke='%23444' stroke-width='1.5'/%3E%3Cellipse cx='32' cy='9' rx='4' ry='2' fill='%23333'/%3E%3Crect x='24' y='7' width='16' height='4' rx='1' fill='rgba(255,255,255,0.6)'/%3E%3Cpath d='M19 29 L23 33 L31 23' fill='none' stroke='rgba(0,0,0,0.5)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18 28 L22 32 L30 22' fill='none' stroke='url(%23chk)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18 28 L22 32 L30 22' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M19 41 L23 45 L31 35' fill='none' stroke='rgba(0,0,0,0.5)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18 40 L22 44 L30 34' fill='none' stroke='url(%23chk)' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18 40 L22 44 L30 34' fill='none' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            --icon-filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.5));
+        }
+
+        /* WINDOWS 7 */
+        body.theme-win7 {
+            --font-family: 'Segoe UI', Tahoma, sans-serif;
+            --wallpaper: none;
+            --bg-fallback: #1c5f94;
+            --window-bg: rgba(240, 248, 255, 0.9);
+            --glass-blur: blur(14px);
+            --glass-bg: rgba(255, 255, 255, 0.3);
+            --window-border-out: 1px solid rgba(150, 200, 255, 0.7);
+            --window-border-radius: 8px;
+            --title-bg: linear-gradient(to bottom, rgba(180, 210, 255, 0.6), rgba(120, 180, 240, 0.6));
+            --title-height: 34px;
+            --title-color: #000;
+            --taskbar-bg: rgba(30, 30, 40, 0.65);
+            --taskbar-border: none;
+            --taskbar-height: 54px;
+            --taskbar-text-color: #ffffff;
+            --btn-bg: linear-gradient(to bottom, #f2f9ff, #cbe2fa);
+            --btn-border: 1px solid #709bc9;
+            --tray-bg: rgba(0,0,0,0.3);
+            --tray-border: none;
+            --btn-close-bg: #e81123; 
+            --btn-close-color: #fff;
+            --timer-bg: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(200,225,255,0.2));
+            --timer-border: 1px solid rgba(255,255,255,0.6);
+            --timer-text-color: #0a2f6c;
+            /* Win7/Aero Glass Blue Custom SVGs */
+            --icon-pomo: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='w7p' cx='30%25' cy='30%25' r='70%25'%3E%3Cstop offset='0%25' stop-color='%235ac8fa'/%3E%3Cstop offset='60%25' stop-color='%23007aff'/%3E%3Cstop offset='100%25' stop-color='%23003566'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='36' r='24' fill='url(%23w7p)' stroke='%2380d4ff' stroke-width='1'/%3E%3Cpath d='M32 12 Q40 0 48 12 Q40 20 32 12' fill='%2332d74b'/%3E%3Cellipse cx='24' cy='24' rx='8' ry='4' fill='%23fff' opacity='0.5' transform='rotate(-30 24 24)'/%3E%3C/svg%3E");
+            --icon-notes: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='w7n' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.9)'/%3E%3Cstop offset='100%25' stop-color='rgba(150,200,255,0.6)'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='12' y='10' width='40' height='46' rx='4' fill='url(%23w7n)' stroke='%23007aff' stroke-width='1.5'/%3E%3Cline x1='20' y1='24' x2='44' y2='24' stroke='%23007aff' stroke-width='1.5' opacity='0.6'/%3E%3Cline x1='20' y1='34' x2='44' y2='34' stroke='%23007aff' stroke-width='1.5' opacity='0.6'/%3E%3Cpath d='M16 6h32v8h-32z' fill='rgba(0,122,255,0.7)'/%3E%3C/svg%3E");
+            --icon-calc: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='w7c' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230052a3'/%3E%3Cstop offset='100%25' stop-color='%23001f3f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='12' y='8' width='40' height='48' rx='6' fill='url(%23w7c)' stroke='%235ac8fa' stroke-width='1'/%3E%3Crect x='18' y='14' width='28' height='12' rx='2' fill='rgba(255,255,255,0.2)' stroke='%23fff' stroke-width='0.5'/%3E%3Ccircle cx='22' cy='36' r='4' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='32' cy='36' r='4' fill='rgba(255,255,255,0.4)'/%3E%3Ccircle cx='42' cy='36' r='4' fill='%23ff9500'/%3E%3C/svg%3E");
+            --icon-clock: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3CradialGradient id='w7ck' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='70%25' stop-color='rgba(0,122,255,0.3)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,50,120,0.9)'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23w7ck)' stroke='%235ac8fa' stroke-width='2'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23fff' stroke-width='1' opacity='0.5'/%3E%3Cline x1='32' y1='32' x2='32' y2='16' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='32' y1='32' x2='44' y2='32' stroke='%235ac8fa' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='2' fill='%23fff'/%3E%3C/svg%3E");
+            --icon-todo: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='w7td' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='100%25' stop-color='%23b3d4ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='14' y='10' width='36' height='46' rx='6' fill='url(%23w7td)' stroke='%235ac8fa' stroke-width='1.5'/%3E%3Cpath d='M20 6h32v10H20z' fill='%23007aff' stroke='%23003566' stroke-width='1.5'/%3E%3Ccircle cx='22' cy='28' r='4' fill='%232ecc71'/%3E%3Cline x1='30' y1='28' x2='44' y2='28' stroke='%23555' stroke-width='2'/%3E%3Ccircle cx='22' cy='40' r='4' fill='%23e74c3c'/%3E%3Cline x1='30' y1='40' x2='44' y2='40' stroke='%23555' stroke-width='2'/%3E%3Cpath d='M14 14h36' stroke='rgba(255,255,255,0.8)' stroke-width='2'/%3E%3C/svg%3E");
+            --icon-music: url("data:image/svg+xml,%3Csvg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3ClinearGradient id='w7m' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%234dc3ff'/%3E%3Cstop offset='45%25' stop-color='%23007aff'/%3E%3Cstop offset='50%25' stop-color='%230044cc'/%3E%3Cstop offset='100%25' stop-color='%23001166'/%3E%3C/linearGradient%3E%3ClinearGradient id='w7m-glass' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='rgba(255,255,255,0.9)'/%3E%3Cstop offset='100%25' stop-color='rgba(255,255,255,0)'/%3E%3C/linearGradient%3E%3CradialGradient id='w7m-glow' cx='50%25' cy='100%25' r='80%25'%3E%3Cstop offset='0%25' stop-color='rgba(100,200,255,0.8)'/%3E%3Cstop offset='100%25' stop-color='rgba(0,0,0,0)'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23w7m)' stroke='%23aaddff' stroke-width='1.5'/%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23w7m-glow)'/%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='url(%23w7m-glass)' stroke-width='2'/%3E%3Cpath d='M32,40 A6,6 0 1,1 20,40 A6,6 0 1,1 32,40 M30,40 L30,18 L32,18 C40,20 44,26 44,34 C40,26 36,24 32,28 L32,40 Z' fill='%23fff' stroke='%23002244' stroke-width='1'/%3E%3C/svg%3E");            
+            --icon-filter: drop-shadow(1px 2px 3px rgba(0,0,0,0.5));
+        }
+
+        /* Shared Vista/7 Taskbar & Start Orb */
+        body.theme-winvista .task-item, 
+        body.theme-win7 .task-item {
+            background: rgba(255,255,255,0.15); 
+            border: 1px solid rgba(255,255,255,0.3); 
+            color: white; 
+            border-radius: 4px;
+        }
+        
+        body.theme-winvista #start-btn, 
+        body.theme-win7 #start-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #5ba8ff, #1a4a8a);
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5), inset 0 3px 6px rgba(255,255,255,0.8);
+            padding: 0;
+            margin: 0 10px 0 6px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        body.theme-winvista #start-btn:hover, 
+        body.theme-win7 #start-btn:hover {
+            background: radial-gradient(circle at 35% 35%, #84bfff, #205ab0);
+            box-shadow: 0 0 8px rgba(91, 168, 255, 0.8), inset 0 3px 6px rgba(255,255,255,0.9);
+        }
+
+        /* Perspective Windows Flag (Vista/7) */
+        body.theme-winvista #start-btn::after, 
+        body.theme-win7 #start-btn::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23FF6A00' d='M 10,45 L 48,45 L 48,15 L 10,22 Z' /%3E%3Cpath fill='%2374C000' d='M 52,45 L 90,45 L 90,10 L 52,15 Z' /%3E%3Cpath fill='%2300A4FF' d='M 10,50 L 48,50 L 48,80 L 10,73 Z' /%3E%3Cpath fill='%23FFB800' d='M 52,50 L 90,50 L 90,85 L 52,80 Z' /%3E%3C/svg%3E") no-repeat center/contain;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+            pointer-events: none;
+        }
+        
+        body.theme-winvista #start-btn img, body.theme-win7 #start-btn img,
+        body.theme-winvista #start-btn span, body.theme-win7 #start-btn span {
+            display: none; /* Hide default icons for Vista/7 */
+        }
+
+        /* Live Wallpapers */
+        .live-wallpaper { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            z-index: 0; 
+            pointer-events: none; 
+            overflow: hidden; 
+            display: none; 
+        }
+
+        .live-wallpaper video { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transform: translate(-50%, -50%); 
+            pointer-events: none; 
+        }
+
+        body.live-vista .live-wallpaper.vista, 
+        body.live-win7 .live-wallpaper.win7 { 
+            display: block; 
+        }
+
+        body.live-vista, 
+        body.live-win7 { 
+            background-image: none; 
+            background-color: transparent; 
+        }
+
+        /* =========================================
+           DESKTOP & WINDOWS LAYOUT
+           ========================================= */
+        #desktop { 
+            position: relative; 
+            width: 100%; 
+            height: calc(100vh - var(--taskbar-height)); 
+            padding: 15px; 
+            display: flex; 
+            flex-direction: column; 
+            flex-wrap: wrap; 
+            align-content: flex-start; 
+            gap: 20px; 
+            z-index: 1; 
+        }
+        
+        .icon { 
+            width: 75px; 
+            text-align: center; 
+            color: #fff; 
+            text-shadow: 1px 1px 2px #000, 0 0 4px #000; 
+            cursor: pointer; 
+            font-size: 13px; 
+            font-weight: bold; 
+            font-family: var(--font-family); 
+        }
+
+        .icon-img { 
+            width: 44px; 
+            height: 44px; 
+            margin: 0 auto 5px auto; 
+            background-size: contain; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+            filter: var(--icon-filter); 
+        }
+
+        .pomo-icon { background-image: var(--icon-pomo); }
+        .notes-icon { background-image: var(--icon-notes); }
+        .calc-icon { background-image: var(--icon-calc); }
+        .clock-icon { background-image: var(--icon-clock); }
+        .music-icon { background-image: var(--icon-music); }
+        .todo-icon { background-image: var(--icon-todo); }
+
+        .window { 
+            position: absolute; 
+            background: var(--window-bg); 
+            box-shadow: var(--window-border-out); 
+            border-radius: var(--window-border-radius); 
+            padding: 3px; 
+            display: none; /* Hidden by default */
+            flex-direction: column; 
+            min-width: 260px; 
+            min-height: 180px; 
+            backdrop-filter: var(--glass-blur); 
+            z-index: 10; 
+            font-family: var(--font-family); 
+        }
+
+        .window.active-window { 
+            display: flex; 
+        }
+
+        .title-bar { 
+            background: var(--title-bg); 
+            color: var(--title-color); 
+            height: var(--title-height); 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 8px; 
+            border-radius: var(--window-border-radius); 
+            border-bottom-left-radius: 0; 
+            border-bottom-right-radius: 0; 
+            cursor: move; 
+            font: var(--title-font); 
+            flex-shrink: 0; 
+        }
+
+        .title-bar-controls { 
+            display: flex; 
+            gap: 4px; 
+            align-items: center; 
+        }
+
+        .title-bar-controls button { 
+            width: 22px; 
+            height: 22px; 
+            background: var(--btn-bg); 
+            border: var(--btn-border); 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 14px; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 0; 
+            margin: 0; 
+            font-family: var(--font-family); 
+        }
+
+        .title-bar-controls button:active { 
+            box-shadow: var(--btn-active-border); 
+        }
+
+        .title-bar-controls button.close { 
+            background: var(--btn-close-bg); 
+            color: var(--btn-close-color); 
+        }
+
+        .title-bar-controls button.minimize { 
+            background: var(--btn-min-bg); 
+            color: var(--btn-min-color); 
+        }
+
+        .window-body { 
+            padding: 10px; 
+            flex-grow: 1; 
+            background: var(--glass-bg); 
+            color: #000; 
+            display: flex; 
+            flex-direction: column; 
+            overflow: hidden; 
+            position: relative; 
+        }
+
+        /* Stops iframes/text from swallowing mouse events during a drag */
+        .drag-overlay { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            z-index: 9999; 
+            display: none; 
+            background: transparent; 
+        }
+
+        body.dragging .drag-overlay, 
+        body.resizing .drag-overlay { 
+            display: block; 
+        }
+
+        .window-resizer { 
+            position: absolute; 
+            right: 0; 
+            bottom: 0; 
+            width: 14px; 
+            height: 14px; 
+            cursor: se-resize; 
+            z-index: 10000; 
+        }
+
+        /* =========================================
+           APP SPECIFIC STYLES
+           ========================================= */
+
+        /* Pomodoro */
+        .pomo-display { 
+            background: var(--timer-bg); 
+            border: var(--timer-border); 
+            border-radius: var(--timer-border-radius); 
+            color: var(--timer-text-color); 
+            font: var(--timer-font); 
+            padding: var(--timer-padding); 
+            text-align: center; 
+            margin-bottom: 14px; 
+            letter-spacing: 2px; 
+        }
+
+        .pomo-controls { 
+            display: flex; 
+            gap: 6px; 
+            justify-content: center; 
+            margin-bottom: 10px; 
+        }
+
+        .pomo-settings { 
+            display: flex; 
+            gap: 10px; 
+            justify-content: space-between; 
+            font-size: 11px; 
+            padding: 6px; 
+            font-family: var(--font-family); 
+        }
+
+        /* Notes */
+        #notes-area { 
+            width: 100%; 
+            height: 100%; 
+            resize: none; 
+            border: inset 2px #aaa; 
+            padding: 6px; 
+            background: #fff; 
+            font-family: monospace; 
+        }
+
+        /* Calculator */
+        .calc-grid { 
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 4px; 
+            flex-grow: 1; 
+        }
+
+        #calc-display { 
+            width: 100%; 
+            background: #fff; 
+            border: inset 2px #aaa; 
+            text-align: right; 
+            padding: 6px; 
+            font-size: 20px; 
+            margin-bottom: 8px; 
+            font-family: var(--font-family); 
+        }
+
+        /* Clocks */
+        #clocks-container { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 4px; 
+            overflow-y: auto; 
+            flex-grow: 1; 
+        }
+
+        .clock-city { 
+            display: flex; 
+            justify-content: space-between; 
+            padding: 4px 0; 
+            border-bottom: 1px dotted #888; 
+            font-family: var(--font-family); 
+        }
+
+        /* Media Player */
+        .media-input-bar { 
+            display: flex; 
+            gap: 4px; 
+            padding: 5px; 
+            background: rgba(0,0,0,0.05); 
+            border-bottom: 1px solid #999; 
+            flex-shrink: 0; 
+        }
+
+        .media-input-bar input { 
+            flex-grow: 1; 
+            padding: 3px 6px; 
+            border: inset 2px #aaa; 
+            font-family: var(--font-family); 
+        }
+
+        .yt-wrapper { 
+            width: 100%; 
+            flex-grow: 1; 
+            position: relative; 
+            background: #000; 
+        }
+
+        iframe.yt-player { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+        }
+
+        /* General Buttons */
+        button { 
+            background: var(--btn-bg); 
+            border: var(--btn-border); 
+            padding: 4px 10px; 
+            cursor: pointer; 
+            color: inherit; 
+            font-family: var(--font-family); 
+        }
+
+        button:active { 
+            box-shadow: var(--btn-active-border); 
+        }
+
+        /* =========================================
+           TASKBAR & START MENU
+           ========================================= */
+        #taskbar { 
+            position: fixed; 
+            bottom: 0; 
+            left: 0; 
+            width: 100%; 
+            height: var(--taskbar-height); 
+            background: var(--taskbar-bg); 
+            box-shadow: var(--taskbar-border); 
+            display: flex; 
+            align-items: center; 
+            padding: 4px; 
+            z-index: 99998; 
+            color: var(--taskbar-text-color); 
+            font-size: 14px; 
+            backdrop-filter: var(--glass-blur); 
+            font-family: var(--font-family); 
+        }
+
+        #start-btn { 
+            height: calc(100% - 4px); 
+            padding: 0 12px; 
+            font-weight: bold; 
+            background: var(--start-btn-bg); 
+            border: var(--start-btn-border); 
+            border-radius: var(--start-btn-radius); 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            gap: 6px; 
+            color: inherit; 
+            font-size: 14px; 
+        }
+
+        #start-btn img { 
+            width: 16px; 
+            height: 16px; 
+        }
+
+        #task-list { 
+            display: flex; 
+            flex-grow: 1; 
+            margin: 0 8px; 
+            gap: 4px; 
+            overflow: hidden; 
+            height: 100%; 
+            align-items: center; 
+        }
+
+        .task-item { 
+            background: var(--btn-bg); 
+            border: var(--btn-border); 
+            padding: 0 12px; 
+            max-width: 150px; 
+            height: 85%; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            font-size: 12px; 
+            color: inherit; 
+            font-family: var(--font-family); 
+        }
+
+        .task-item.active { 
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3); 
+            background: rgba(0,0,0,0.15) !important; 
+        }
+
+        #tray { 
+            padding: 0 10px; 
+            background: var(--tray-bg); 
+            border: var(--tray-border); 
+            height: 85%; 
+            display: flex; 
+            align-items: center; 
+            font-size: 12px; 
+            color: inherit; 
+            font-family: var(--font-family); 
+        }
+
+        #start-menu { 
+            position: fixed; 
+            bottom: var(--taskbar-height); 
+            left: 0; 
+            width: 240px; 
+            background: var(--window-bg); 
+            box-shadow: var(--window-border-out); 
+            border-top-right-radius: var(--window-border-radius); 
+            display: none; 
+            flex-direction: column; 
+            z-index: 99999; 
+            font-family: var(--font-family); 
+        }
+
+        #start-menu.active { 
+            display: flex; 
+        }
+
+        .sm-item { 
+            padding: 8px 15px; 
+            cursor: pointer; 
+            color: #000; 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-size: 13px; 
+        }
+
+        .sm-item:hover { 
+            background: #000080; 
+            color: white; 
+        }
+
+        body.theme-win98 .sm-item:hover { 
+            background: #82618b; 
+            color: #fff; 
+        }
+
+        .sm-divider { 
+            height: 1px; 
+            background: #888; 
+            border-bottom: 1px solid #fff; 
+            margin: 4px 0; 
+        }
+
+        #os-submenu { 
+            display: none; 
+            flex-direction: column; 
+            padding-left: 15px; 
+            background: rgba(0,0,0,0.03); 
+        }
+
+        #os-submenu.active { 
+            display: flex; 
+        }
